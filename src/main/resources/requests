@@ -13,3 +13,42 @@ curl --location --request GET 'localhost:8080/auth/verify' \
 
 post
 curl --location --request POST 'localhost:8080/auth/create?cpf=45546532858'
+
+
+
+
+--docker para redis
+docker pull redis
+docker run -d --name redis -p 6379:6379 -v redis_data:/data redis:latest redis-server --appendonly yes --requirepass "123456"
+
+
+--acessando
+--acessa pipeline do redis
+docker exec -it redis redis-cli
+
+--acessa o redis com senha
+AUTH 123456
+--ou
+docker exec -it redis redis-cli -a 123456
+
+--recriar banco
+FLUSHDB
+
+--ver keys
+KEYS *
+
+--ver valor de uma key
+GET nome_da_key
+
+--deletar key
+DEL nome_da_key
+
+--verificar se o redis está rodando
+docker ps
+
+--parar o redis
+docker stop redis
+
+--iniciar o redis
+docker start redis
+
