@@ -1,0 +1,15 @@
+
+get
+
+curl --location --request GET 'localhost:8080/token/verify' \
+--header 'Content-Type: application/json' \
+--data '{
+    "cpf": "45546532858",
+    "token": "366661"
+}'
+
+
+
+
+post
+curl --location --request POST 'localhost:8080/token/45546532858'
