@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sp.gov.br.iamspe.sabi.rdalth.model.Student;
+import sp.gov.br.iamspe.sabi.rdalth.model.StudentExampleEntity;
 
 @RestController
 @RequestMapping("/students")
@@ -20,11 +20,11 @@ public class StudentExampleController {
     }
 
     @PostMapping("/test")
-    public ResponseEntity<Student> createTestStudent() {
-        Student student = new Student("Eng2015001", "John Doe", Student.Gender.MALE, 1);
-        String key = "Student:" + student.getId();
-        redisTemplate.opsForValue().set(key, student);
-        return ResponseEntity.ok(student);
+    public ResponseEntity<StudentExampleEntity> createTestStudent() {
+        StudentExampleEntity studentExampleEntity = new StudentExampleEntity("Eng2015001", "John Doe", StudentExampleEntity.Gender.MALE, 1);
+        String key = "Student:" + studentExampleEntity.getId();
+        redisTemplate.opsForValue().set(key, studentExampleEntity);
+        return ResponseEntity.ok(studentExampleEntity);
     }
 
 }

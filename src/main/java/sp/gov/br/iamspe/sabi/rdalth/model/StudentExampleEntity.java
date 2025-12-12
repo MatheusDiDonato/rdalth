@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @RedisHash("Student")
-public class Student implements Serializable {
+public class StudentExampleEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,10 +21,10 @@ public class Student implements Serializable {
     private Gender gender;
     private int grade;
 
-    public Student() {
+    public StudentExampleEntity() {
     }
 
-    public Student(String id, String name, Gender gender, int grade) {
+    public StudentExampleEntity(String id, String name, Gender gender, int grade) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -67,8 +67,8 @@ public class Student implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return grade == student.grade && Objects.equals(id, student.id) && Objects.equals(name, student.name) && gender == student.gender;
+        StudentExampleEntity studentExampleEntity = (StudentExampleEntity) o;
+        return grade == studentExampleEntity.grade && Objects.equals(id, studentExampleEntity.id) && Objects.equals(name, studentExampleEntity.name) && gender == studentExampleEntity.gender;
     }
 
     @Override

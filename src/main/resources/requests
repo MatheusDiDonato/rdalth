@@ -1,7 +1,7 @@
 
 get
 
-curl --location --request GET 'localhost:8080/token/verify' \
+curl --location --request GET 'localhost:8080/auth/verify' \
 --header 'Content-Type: application/json' \
 --data '{
     "cpf": "45546532858",
@@ -12,4 +12,4 @@ curl --location --request GET 'localhost:8080/token/verify' \
 
 
 post
-curl --location --request POST 'localhost:8080/token/45546532858'
+curl --location --request POST 'localhost:8080/auth/create?cpf=45546532858'

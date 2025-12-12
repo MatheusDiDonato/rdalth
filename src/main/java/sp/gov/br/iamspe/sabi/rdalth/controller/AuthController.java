@@ -11,20 +11,20 @@ import java.security.SecureRandom;
 import java.time.Duration;
 
 @RestController
-@RequestMapping("/token")
-public class CpfController {
+@RequestMapping("/auth")
+public class AuthController {
 
     private final StringRedisTemplate redisTemplate;
     private static final Duration TTL = Duration.ofMinutes(5);
     private final SecureRandom random = new SecureRandom();
 
     @Autowired
-    public CpfController(StringRedisTemplate redisTemplate) {
+    public AuthController(StringRedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
-    @PostMapping("/{cpf}")
-    public ResponseEntity<CodeTokenDto> saveCpf(@PathVariable("cpf") String cpf) {
+    @PostMapping("/create")
+    public ResponseEntity<CodeTokenDto> saveCpf(@RequestParam String cpf) {
         String key = "cpf:" + cpf;
         if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
             redisTemplate.delete(key);
