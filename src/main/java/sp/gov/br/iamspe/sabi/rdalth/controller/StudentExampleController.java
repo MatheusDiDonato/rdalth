@@ -10,12 +10,12 @@ import sp.gov.br.iamspe.sabi.rdalth.model.Student;
 
 @RestController
 @RequestMapping("/students")
-public class StudentController {
+public class StudentExampleController {
 
     private final RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public StudentController(RedisTemplate<String, Object> redisTemplate) {
+    public StudentExampleController(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
